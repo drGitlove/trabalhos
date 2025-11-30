@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      background-color: #000;
+    }
+
+    /* Fundo animado e nítido */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://th.bing.com/th/id/R.3287343f916da03735c9996aff65541a?rik=WMDxIUWCHh%2fbZA&riu=http%3a%2f%2f2.bp.blogspot.com%2f-ADQrJlqqJnM%2fVXN-TPdFgwI%2fAAAAAAAAu5Q%2fwLj4L-KHhT4%2fs1600%2fFlores%252Bfundo%252Bescuro%252B%25252848%252529.jpg&ehk=SFyDI3%2fZEolUw%2fC8g9Uk6NqaYa9gA%2f1GaiozBIz%2bGX8%3d&risl=&pid=ImgRaw&r=0') center/cover no-repeat;
+      z-index: -3;
+      animation: moverFundo 160s linear infinite;
+      opacity: 0.9;
+      filter: brightness(1.1) contrast(1.25) saturate(1.35);
+    }
+
+    @keyframes moverFundo {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-10px) translateX(-10px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+
+    .fundo-suave {
+      background-color: rgba(0, 0, 0, 0.4);
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(1.5px);
+    }
+
+    /* CABEÇALHO */
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      border-bottom: 3px solid rgba(255,255,255,0.3);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin: 0;
+      color: #fff;
+      text-shadow: 0 0 15px rgba(255,255,255,0.7);
+      animation: brilho 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes brilho {
+      0% { text-shadow: 0 0 10px rgba(255,255,255,0.6), 0 0 20px rgba(255,159,191,0.5); }
+      50% { text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,159,191,0.7); }
+      100% { text-shadow: 0 0 12px rgba(255,255,255,0.6), 0 0 25px rgba(255,159,191,0.4); }
+    }
+
+    /* CONTEÚDO */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+    .container.visible { opacity: 1; transform: translateY(0); }
+
+    .perfil {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .perfil img {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1rem;
+      border: 3px solid #ff9fbf;
+      box-shadow: 0 4px 12px rgba(255,159,191,0.4);
+    }
+
+    .perfil .info h2 {
+      font-family: 'Playfair Display', serif;
+      color: #ff9fbf;
+      font-size: 2.5rem; /* maior que o normal */
+      font-weight: 700;
+      text-shadow: 0 0 10px #ff9fbf, 0 0 20px #ff6f91, 0 0 25px #dca6ff;
+      animation: brilhoNome 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes brilhoNome {
+      0% { text-shadow: 0 0 5px #ff9fbf, 0 0 15px #ff6f91, 0 0 25px #dca6ff; }
+      50% { text-shadow: 0 0 15px #ff9fbf, 0 0 25px #ff6f91, 0 0 35px #dca6ff; }
+      100% { text-shadow: 0 0 10px #ff9fbf, 0 0 20px #ff6f91, 0 0 30px #dca6ff; }
+    }
+
+    .perfil .info p {
+      font-size: 1.05rem;
+      color: #fff;
+      text-shadow: 0 0 8px rgba(0,0,0,0.6);
+    }
+
+    section {
+      margin-bottom: 3rem;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 3px 10px rgba(255,255,255,0.15);
+    }
+
+    section h3 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1.6rem;
+      border-left: 4px solid #ff9fbf;
+      padding-left: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .convite {
+      text-align: center;
+      background-color: rgba(255,255,255,0.1);
+      padding: 3rem 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 18px rgba(255,255,255,0.15);
+      margin-bottom: 3rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px 20px 0 0;
+      margin-top: 2rem;
+    }
+
+    /* ÍCONES SOCIAIS CORRIGIDOS */
+    .social-icons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 100;
+    }
+
+    .social-icons a {
+      background: #ff9fbf;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 8px #ff9fbf, 0 0 15px #ff6f91, 0 0 20px #dca6ff;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 12px #ff9fbf, 0 0 20px #ff6f91, 0 0 30px #dca6ff;
+    }
+
+    /* BOTÃO DE SOM */
+    .sound-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255,159,191,0.9);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      z-index: 100;
+    }
+    .sound-toggle:hover { background: #ff6f91; transform: scale(1.1); }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      .perfil img { width: 150px; height: 150px; }
+      section h3 { font-size: 1.4rem; }
+      .perfil .info h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fundo-suave">
+    <header>
+      <h1> Abordagem sistêmica!</h1>
+	  <h1> Tudo sobre equilíbrio, transformação e Cura. </h1>
+    </header>
+
+    <div class="container">
+      <div class="perfil">
+        <img src="gislainesite.jpeg" alt="Foto da Mentora Gislaine">
+        <div class="info">
+          <h2>Mentora Gislaine</h2>
+          <p>Especializada em constelações familiares e desenvolvimento humano.  
+          Sua missão é guiar pessoas na descoberta de si mesmas e no reencontro com o equilíbrio emocional e relacional.</p>
+        </div>
+      </div>
+
+      <section id="terapia">
+        <h3>Sobre a Terapia Sistêmica</h3>
+        <p>A Terapia Sistêmica ajuda você a entender o passado, compreender o presente e sonhar com um futuro melhor.</p>
+      </section>
+
+      <section id="beneficios">
+        <h3>Benefícios do Tratamento</h3>
+        <p>• Alívio emocional e clareza interior<br>
+           • Relacionamentos mais saudáveis<br>
+           • Equilíbrio e reconciliação com sua história<br>
+           • Expansão da consciência e leveza na alma</p>
+      </section>
+
+      <section id="metodo">
+        <h3>Métodos</h3>
+        <p>Cada encontro é conduzido com acolhimento, respeito e empatia.  
+           Nossa abordagem combina constelações familiares e técnicas energéticas para promover cura interna.</p>
+      </section>
+
+      <div class="convite">
+        <h3>Agende seu Atendimento</h3>
+        <p>Dê o primeiro passo para sua transformação e viva essa experiência única de cura e autoconhecimento.</p>
+      </div>
+    </div>
+
+    <div class="social-icons">
+      <a href="+55 42 9147-2505" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/gislainerodriguesde.l?igsh=MXhxeThhbHFoNnZmbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:gislainerodrigues798@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <button class="sound-toggle" id="soundBtn" title="Ativar som ambiente">
+      <i class="fa-solid fa-volume-off"></i>
+    </button>
+
+    <audio id="ambiente" loop>
+      <source src="https://cdn.pixabay.com/audio/2022/03/10/audio_7a4b34e7a1.mp3" type="audio/mpeg">
+    </audio>
+
+    <footer>
+      © 2025 Sistêmica Gislaine — Todos os direitos reservados
+    </footer>
+  </div>
+
+  <script>
+    const containers = document.querySelectorAll('.container, section');
+    const onScroll = () => {
+      containers.forEach(c => {
+        const rect = c.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) c.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    const audio = document.getElementById('ambiente');
+    const btn = document.getElementById('soundBtn');
+    let playing = false;
+    btn.addEventListener('click', () => {
+      if (!playing) {
+        audio.play();
+        btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+      } else {
+        audio.pause();
+        btn.innerHTML = '<i class="fa-solid fa-volume-off"></i>';
+      }
+      playing = !playing;
+    });
+  </script>
+</body>
+</html>
